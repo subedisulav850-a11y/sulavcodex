@@ -306,7 +306,7 @@ def handle_requests():
     key = request.args.get("key")
     client_ip = request.remote_addr
 
-    if key != "JMLB":
+    if key != "Sulav":
         return jsonify({"error": "Invalid or missing API key 🔑"}), 403
 
     if not uid or not server_name:
