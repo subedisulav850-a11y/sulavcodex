@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message DynamicDuoData {
+    int64 partner_uid = 1;
+    int32 score = 3;
+    int64 creation_timestamp = 4;
+    int32 days_active = 5;
+    int32 status = 6;
+}
+
+message SpecialFriendResponse {
+    DynamicDuoData duo_info = 1;
+}
