@@ -595,7 +595,7 @@ def major_login(access_token: str, open_id: str, region: str) -> Optional[Dict[s
         "Connection": "Keep-Alive",
         "Content-Type": "application/x-www-form-urlencoded",
         "Host": "loginbp.ggblueshark.com" if region.upper() not in ["ME","TH"] else "loginbp.common.ggbluefox.com",
-        "ReleaseVersion": "OB53",
+        "ReleaseVersion": "OB54",
         "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_I005DA Build/PI)",
         "X-GA": "v1 1",
         "X-Unity-Version": "2018.4.11f1"
@@ -1108,7 +1108,7 @@ async def get_duo(
         "Content-Type": "application/x-www-form-urlencoded",
         "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11)",
         "X-GA": "v1 1",
-        "ReleaseVersion": "OB53",
+        "ReleaseVersion": "OB54",
         "Connection": "Keep-Alive",
     }
 
@@ -1576,57 +1576,49 @@ async def get_region(uid: str = Query(...)):
         "nickname": data.get("nickname", ""),
         "region": data.get("region", ""),
         "credits": {
-            "developer": "t.me/danger_ff_like",
-            "main_channel": "t.me/freefirelikesdanger",
-            "api_channel": "t.me/dangerfreefireapis"
+            "developer": "t.me/sulav_codex_ff",
+            "hack_channel": "t.me/sulavxhacks",
+            "api_channel": "t.me/sulavxapis"
         }
     }
 
 # ================= NEW SOCIAL ENDPOINTS =================
 @app.get("/like")
 async def like_player(uid: str = Query(...)):
-    """Simulate liking a player (placeholder)."""
     return {"message": f"Liked player {uid} successfully!", "uid": uid, "status": "liked"}
 
 @app.get("/follow")
 async def follow_player(uid: str = Query(...)):
-    """Simulate following a player (placeholder)."""
     return {"message": f"Followed player {uid} successfully!", "uid": uid, "status": "followed"}
 
 @app.get("/boost")
 async def boost_player(uid: str = Query(...)):
-    """Simulate boosting a player (placeholder)."""
     return {"message": f"Boosted player {uid} successfully!", "uid": uid, "status": "boosted"}
 
 @app.get("/vote")
 async def vote_player(uid: str = Query(...)):
-    """Simulate voting for a player (placeholder)."""
     return {"message": f"Voted for player {uid} successfully!", "uid": uid, "status": "voted"}
 
 # ================= SERVER INFO / STATUS =================
 @app.get("/status")
 async def server_status():
-    """Get server status."""
     return {
         "status": "online",
-        "uptime": "N/A",  # Could be extended with real uptime tracking
+        "uptime": "N/A",
         "timestamp": datetime.now().isoformat(),
         "version": get_version()
     }
 
 @app.get("/version")
 async def api_version():
-    """Get API version."""
     return {"version": "5.0", "release": "Ultimate Edition", "last_update": "2026-07-21"}
 
 @app.get("/ping")
 async def ping():
-    """Ping test."""
     return {"pong": True, "timestamp": datetime.now().isoformat()}
 
 @app.get("/analytics")
 async def analytics():
-    """Simple analytics placeholder."""
     return {
         "total_requests": "N/A",
         "active_users": "N/A",
@@ -1636,7 +1628,6 @@ async def analytics():
 
 @app.get("/server-info")
 async def server_info():
-    """Get server information."""
     return {
         "name": "FF Ultimate API",
         "version": "5.0",
