@@ -1828,6 +1828,10 @@ async def sulav_help(help: Optional[str] = Query(None)):
     else:
         return {"message": "Use /sulav?help=1 to see all endpoints with examples"}
 
+# ================= VERCEL ENTRY POINT =================
+# This is required for Vercel deployment - Vercel looks for 'application' or 'app'
+application = app
+
 # ================= MAIN =================
 if __name__ == "__main__":
     import uvicorn
